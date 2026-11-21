@@ -14,8 +14,7 @@ def main():
         print(f"Error: Could not create output directory {output_dir}: {e}", file=sys.stderr)
         sys.exit(1)
     
-    source = Path(os.environ.get("MAKEFUN_BOT_DIR", Path.cwd())) / "entry.png"
-    source = source.resolve()
+    source = (Path(os.environ.get("MAKEFUN_BOT_DIR", ".")) / "entry.png").resolve()
     if not source.exists():
         print(f"Error: Source file '{source}' not found.", file=sys.stderr)
         sys.exit(1)
